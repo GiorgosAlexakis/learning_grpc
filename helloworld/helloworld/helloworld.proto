@@ -1,0 +1,17 @@
+syntax = "proto3";
+option go_package = "github.com/Looper2074/learning_grpc/helloworld/helloworld";
+
+package helloworld;
+
+service Greeter{
+    rpc SayHello(HelloRequest) returns (HelloResponse) {};
+}
+
+message HelloRequest {
+    string name = 1;
+    int32 token = 2;
+}
+
+message HelloResponse {
+    string message = 1;
+}
