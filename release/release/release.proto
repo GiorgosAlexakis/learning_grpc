@@ -1,0 +1,25 @@
+syntax = "proto3";
+option go_package = "github.com/Looper2074/learning_grpc/release/release";
+// https://blog.gopheracademy.com/advent-2017/go-grpc-beyond-basics/
+package release;
+
+service GoReleaseService {
+    rpc GetReleaseInfo(GetReleaseInfoRequest) returns (ReleaseInfo) {}
+    rpc ListReleases(ListReleasesRequest) returns (ListReleasesResponse) {}
+}
+
+message GetReleaseInfoRequest {
+    string version = 1;
+}
+
+message ListReleasesRequest {}
+
+message ListReleasesResponse {
+    repeated ReleaseInfo release = 1;
+}
+
+message ReleaseInfo {
+    string version = 1;
+    string release_date = 2;
+    string release_notes_url = 3;
+}
